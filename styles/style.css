@@ -1,0 +1,150 @@
+html, body { 
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 15px;
+}
+
+.sidenav h1 {
+    padding: 4px 8px 4px 36px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav li {
+    padding: 4px 8px 4px -40px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    cursor:pointer;
+}
+
+.sidenav li:hover, .offcanvas li:focus{
+    color: #f1f1f1;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px 16px 16px 32px;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#search {
+    padding: 16px 16px 16px 32px;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav p {font-size: 18px;}
+}
+
+#map {
+	height: 100%;
+	z-index: 1;
+}
+
+#location {
+    margin-top: 24px;
+    position: absolute; 
+    width: 100%;
+    z-index: 2;
+    font-family: sans-serif;
+    font-size: 3em;
+    text-align: center;
+    padding: .2em .5em;
+    border-radius: .2em;
+    background-color:rgba(139,38,205,0.55);
+}
+
+.search {
+    position: absolute; 
+    top:0px; 
+    height: 100%; 
+    width: 100%; 
+    background-color: #000; 
+    opacity: .80; 
+    -moz-opacity: 0.80; 
+    filter:alpha(opacity=80);
+    z-index: 2;
+}
+
+#search-box {
+    position: absolute; 
+    top:0px; 
+    height: 68%; 
+    width: 100%;
+    z-index: 2;
+    display: none;
+}
+
+#search-input {
+    width: 60%;
+    margin: 15% auto auto 20%;
+    font-family: sans-serif;
+    font-size: 3em;
+    line-height: 1.5em;
+    box-shadow: none;
+    border-radius: .1em;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+#search-input:focus {
+    outline: none;
+    border: 1px solid #8b26cd;
+    box-shadow: 0 0 2em #8b26cd
+}
+
+#filter-box {
+    padding: 4px 8px 4px 0px;
+}
+
+#filter-input {
+    margin-left: 5%;
+    width: 90%;
+    font-family: sans-serif;
+    font-size: 1.5em;
+    box-shadow: none;
+    border-radius: .1em;
+    border: 1px solid #ccc;
+}
+
+#filter-input:focus {
+    outline: none;
+    border: 1px solid #8b26cd;
+    box-shadow: 0 0 2em #8b26cd
+}
+
+#loading {
+    margin-top: 48px;
+    position: absolute; 
+    width: 100%;
+    z-index: 2;
+    text-align: center;
+}
