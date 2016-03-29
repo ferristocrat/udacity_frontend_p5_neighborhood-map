@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>P5: Neighborhood Map</title>
   <link rel="stylesheet" type="text/css" href="styles/style.css">
@@ -11,7 +11,7 @@
   <div id="top-layer"></div>
   <span id="location">_</span>
   <div id="search-box"><form id="search-form"><input id="search-input" type="text" name="search" placeholder="Search for a new location..."></form></div>
-  <span id="loading"><img src='images/loading_map.gif'></span>
+  <span id="loading"><img src='images/loading_map.gif' alt='Page loading'></span>
 
   <div id="mySidenav" class="sidenav">
     <h1>Restaurants</h1>
@@ -36,9 +36,7 @@
   <script src="js/jquery-2.2.1.min.js"></script>
   <script src="js/knockout-3.4.0.js"></script>
   <script src="js/app.js"></script>
-  <script async defer 
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyC5TZMIT1G1IGdheFqnGUYnRkIbZmpXg
-      &libraries=visualization&callback=getLocation"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyC5TZMIT1G1IGdheFqnGUYnRkIbZmpXg&libraries=visualization&callback=getLocation" onerror="mapLoadError()"></script>
 
 
 </body>

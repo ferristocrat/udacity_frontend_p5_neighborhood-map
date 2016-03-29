@@ -29,7 +29,7 @@ html, body {
 }
 
 .sidenav li {
-    padding: 4px 8px 4px -40px;
+    padding: 0 0 5px 0;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
@@ -60,8 +60,8 @@ html, body {
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav p {font-size: 18px;}
+    .sidenav {padding-top: 15px;}
+    .sidenav p {font-size: 18px;}
 }
 
 #map {
@@ -78,7 +78,6 @@ html, body {
     font-size: 3em;
     text-align: center;
     padding: .2em .5em;
-    border-radius: .2em;
     background-color:rgba(139,38,205,0.55);
 }
 
