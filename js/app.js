@@ -73,13 +73,14 @@ function getLocation() {
 }
 
 function changeLocation() {
+  // If geolocation functionality exists in browser, request the geolocation
   if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(getPosition, showError);
+    navigator.geolocation.getCurrentPosition(getPosition, showError);
   } else {
     $('#location').empty();
     $('#location').append('Washington, DC');
-    deferred.resolve();
     $('#loading').toggle();
+    deferred.resolve();
   }
 }
 
@@ -115,7 +116,11 @@ function showError(error) {
             alert("An unknown error occurred.");
             break;
     }
-    $('#')
+
+    $('#location').empty();
+    $('#location').append('Washington, DC');
+    $('#loading').toggle();
+    deferred.resolve();
 }
 
 function initMap() {
@@ -253,15 +258,6 @@ $('img').click(function() {
   markersArray[i].setMap(map);
 })
 */
-
-// Toggles a map markers animation
-function toggleBounce(marker) {
-  if (marker.getAnimation() == null) {
-    marker.setAnimation(google.maps.Animation.BOUNCE);
-  } else {
-    marker.setAnimation(null);
-  }
-}
 // END SECTION 2
 
 
@@ -397,7 +393,9 @@ function ViewModel() {
   this.selectMapMarker = function(data) {
     markersArray.forEach(function(marker){
       if (String(data.id()) == marker.title) {
-      toggleBounce(marker);
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+      } else {
+        marker.setAnimation(null);
       }
     })
   };
