@@ -23,7 +23,11 @@ This is my fifth of a series of projects through Udacity's **Front End Web Devel
 
 ## Instructions
 
+<<<<<<< HEAD
 1. Since the app requires a user's geolocation, it must be run on a server to work. The instruction to run index.html is not applicable for your app.  If you have python installed you can run a [SimpleHTTPServer](https://docs.python.org/2/library/simplehttpserver.html "SimpleHTTPServer") by running `python -m SimpleHTTPServer 8000`
 2. Open index.html in a browser
 
 * If you can't run a local server, you can just open index.html, and the location should be defaulted to Washington, DC
+=======
+1. Open index.html in a browser
+>>>>>>> origin/master
