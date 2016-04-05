@@ -1,58 +1,4 @@
 // 1.0 MISCELLANEOUS
-
-function openNav() {
-  var nav_width = '25%';
-  if (window.innerWidth < 550) {
-    nav_width = '100%';
-  } else if (window.innerWidth < 1000) {
-    nav_width = '50%';
-  } else {
-    nav_width = '25%';
-  }
-  document.getElementById('mySidenav').style.width = nav_width;
-  document.getElementById('main').style.marginLeft = nav_width;
-  document.body.style.backgroundColor = 'rgba(0,0,0,0.4)';
-  $('#openButton').hide();
-  $('#closeButton').show();
-}
-
-function closeNav() {
-    document.getElementById('mySidenav').style.width = '0';
-    document.getElementById('main').style.marginLeft= '0';
-    document.body.style.backgroundColor = "white";
-    $('#closeButton').hide();
-    $('#openButton').show();
-}
-
-function searchFunction() {
-  $('#top-layer').toggleClass('search');
-  $('#search-box').toggle();
-  $('#location').toggle();
-
-  setTimeout(function() {
-    $(document).click(function(event) {
-      $('#top-layer').toggleClass('search');
-      $('#search-box').toggle();
-      $('#location').toggle();
-      $(this).off(event);
-    });
-  }, 1);
-
-  $('#search-input').on('click', function(event) {
-    event.stopPropagation();
-  });
-
-  // Prevent the default form submission when "Enter" is pressed.  Instead run submitQuery()
-  $('#search-input').keydown(function(e) {
-    var key = e.which;
-    if (key == 13) {
-      e.preventDefault();
-      $(this).off(e);
-      submitQuery();
-    }
-  });
-}
-
 var infowindow;
 var map;
 var current_location = {
@@ -377,7 +323,7 @@ function submitQuery() {
           restaurantAPIcall();
           ViewModel();
         } else {
-          console.log('string empty')
+          console.log('string empty');
           alert('Could not find any locations with that query, please try again with different search terms');
         }
       },
@@ -390,13 +336,10 @@ function submitQuery() {
     }).fail(function() {
       $('#location').empty();
       $('#location').append('<span style="color:white;-webkit-text-stroke: 2px #df1e93;">Could not connect to database...<span>');
-    })
+    });
   } else {
     alert('text empty');
   }
-  //$('#top-layer').toggleClass('search');
-  //$('#loading').toggle();
-  //$('#location').toggle();
 }
 // END SECTION 3
 
@@ -417,9 +360,7 @@ var restaurantArray = ko.observableArray([]);
 function ViewModel() {
   var self = this;
 
-
-
-  this.selectMapMarker = function(data) {
+  self.selectMapMarker = function(data) {
     markersArray.forEach(function(mark){
       if (String(data.id()) == mark.title) {
         var address = data.address();
@@ -456,13 +397,13 @@ function ViewModel() {
         map.setZoom(15);
         infowindow.open(map, mark);
       } 
-    })
-    closeNav();
+    });
+    self.closeNav();
   };
 
   self.filterInput = ko.observable("");
 
-  this.filterInput.subscribe(function(newValue) {
+  self.filterInput.subscribe(function(newValue) {
     for (var i = 0; i < restaurantArray().length; i++) {
       if (restaurantArray()[i].name().toLowerCase().indexOf(newValue.toLowerCase()) >= 0) {
         $( '#' + String(restaurantArray()[i].id())).show();
@@ -472,6 +413,61 @@ function ViewModel() {
         clearOneMapMarker(i);
       }
     }
-  })
+  });
+
+  self.openNav = function() {
+    var nav_width = '25%';
+    if (window.innerWidth < 550) {
+      nav_width = '100%';
+    } else if (window.innerWidth < 1000) {
+      nav_width = '50%';
+    } else {
+      nav_width = '25%';
+    }
+    document.getElementById('mySidenav').style.width = nav_width;
+    document.getElementById('main').style.marginLeft = nav_width;
+    document.body.style.backgroundColor = 'rgba(0,0,0,0.4)';
+    $('#openButton').hide();
+    $('#closeButton').show();
+    
+  };
+
+  self.closeNav = function() {
+    document.getElementById('mySidenav').style.width = '0';
+    document.getElementById('main').style.marginLeft= '0';
+    document.body.style.backgroundColor = 'white';
+    $('#closeButton').hide();
+    $('#openButton').show();
+  };
+
+  self.searchFunction = function() {
+    self.closeNav();
+    $('#top-layer').toggleClass('search');
+    $('#search-box').toggle();
+    $('#location').toggle();
+
+    setTimeout(function() {
+      $(document).click(function(event) {
+        $('#top-layer').toggleClass('search');
+        $('#search-box').toggle();
+        $('#location').toggle();
+        $(this).off(event);
+      });
+    }, 1);
+
+    $('#search-input').on('click', function(event) {
+      event.stopPropagation();
+    });
+
+    // Prevent the default form submission when "Enter" is pressed.  Instead run submitQuery()
+    $('#search-input').keydown(function(e) {
+      var key = e.which;
+      if (key == 13) {
+        e.preventDefault();
+        $(this).off(e);
+        submitQuery();
+      }
+    });
+  };
 }
 //END SECTION 5
