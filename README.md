@@ -27,6 +27,3 @@ This is my fifth of a series of projects through Udacity's **Front End Web Devel
 2. Open index.html in a browser
 
 * If you can't run a local server, you can just open index.html, and the location should be defaulted to Washington, DC
-=======
-1. Open index.html in a browser
->>>>>>> origin/master
