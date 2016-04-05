@@ -14,6 +14,7 @@
   <span id="loading"><img src='images/loading_map.gif' alt='Page loading'></span>
 
   <div id="mySidenav" class="sidenav">
+    <span id="closeButton" class="button" data-bind="click: closeNav">✕</span>
     <h1>Restaurants</h1>
     <hr>
     <div id="filter-box"><form><input id="filter-input" type="search" name="filter" placeholder="Filter..." data-bind="textInput: filterInput"></form></div>
@@ -25,12 +26,11 @@
   <div id="map"></div>
 
   <div id="main">
-    <span id="openButton" style="font-size:60px;cursor:pointer;font-weight:bold" onclick="openNav()">☰</span>
-    <span id="closeButton" style="font-size:60px;cursor:pointer;font-weight:bold" onclick="closeNav()">✕</span>
+    <span id="openButton" class="button" data-bind="click: openNav">☰</span>
   </div>
 
   <div id="search">
-    <span id="searchButton" style="font-size:60px;cursor:pointer;font-weight:bold" onclick="searchFunction(), closeNav()">🔍</span>
+    <span id="searchButton" class="button" data-bind="click: searchFunction">🔍</span>
   </div>
 
   <script src="js/jquery-2.2.1.min.js"></script>
